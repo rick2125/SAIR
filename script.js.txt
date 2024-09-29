@@ -1,0 +1,33 @@
+const askButton = document.getElementById('askButton');
+const heartsContainer = document.getElementById('heartsContainer');
+
+askButton.addEventListener('click', () => {
+    const response = confirm("Quer sair comigo?");
+    
+    if (response) {
+        createHearts();
+    } else {
+        createNoButton();
+    }
+});
+
+function createHearts() {
+    for (let i = 0; i < 10; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw'; // Posição aleatória em largura
+        heart.style.bottom = Math.random() * 100 + 'vh'; // Posição aleatória em altura
+        heartsContainer.appendChild(heart);
+    }
+}
+
+function createNoButton() {
+    const noButton = document.createElement('button');
+    noButton.innerText = 'Não';
+    noButton.style.position = 'absolute';
+    noButton.style.left = Math.random() * 100 + 'vw'; // Posição aleatória em largura
+    noButton.style.top = Math.random() * 100 + 'vh'; // Posição aleatória em altura
+    noButton.onclick = createNoButton; // Para criar mais botões "Não"
+    
+    document.body.appendChild(noButton);
+}

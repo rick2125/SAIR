@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    position: relative;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0b/Heart_icon.svg');
+    background-size: cover;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
